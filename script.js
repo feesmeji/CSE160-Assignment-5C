@@ -24,12 +24,12 @@ function main() {
 
 	const loader = new THREE.CubeTextureLoader();
 	const texture = loader.load([
-		'end_sky.jpg',
-		'end_sky.jpg',
-		'end_sky.jpg',
-		'end_sky.jpg',
-		'end_sky.jpg',
-		'end_sky.jpg',
+		'afternoon_sky.jpg',
+		'afternoon_sky.jpg',
+		'afternoon_sky.jpg',
+		'afternoon_sky.jpg',
+		'afternoon_sky.jpg',
+		'afternoon_sky.jpg',
 
 	] );
 	scene.background = texture;
@@ -43,7 +43,7 @@ function main() {
 	const near = 0.1;
 	const far = 100;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-	camera.position.set( 0, 10, 20 );
+	camera.position.set( 0, 10, 35 );
 
 	class MinMaxGUIHelper {
 
@@ -387,6 +387,7 @@ function main() {
 	torus.position.set(12,0.3,-7);
 	}
 
+
 	{
 	//3A Dog Obj File
 	//Stuff for obj file
@@ -404,7 +405,7 @@ function main() {
 	object.traverse((child) => {
 		if (child instanceof THREE.Mesh) {
 			const loader = new THREE.TextureLoader();
-			const dogTexture = loader.load('white_dog_texture.png');
+			const dogTexture = loader.load('gs_dog_texture.webp');
 			child.material.map = dogTexture;
 		}
 	});
