@@ -459,6 +459,34 @@ function main() {
 }
 
 
+//Wolf jumping over rings 
+
+//torus.position.set(26, 2.6,-15)
+const objLoader = new OBJLoader();
+objLoader.load('./Wolf_obj.obj', (object) => {
+    object.rotation.set(19, 0, 0); // Adjust the Y-axis rotation incrementally
+    object.scale.set(5, 5, 5); // Adjust the scaling factor
+    object.position.set(26, 1.6, -12); // Adjust the position
+
+    scene.add(object);
+
+    // Apply texture to the material of the 3D wolf object
+    object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+            const loader = new THREE.TextureLoader();
+            const wolfTexture = loader.load('Wolf_Body.jpg');
+            child.material.map = wolfTexture;
+        }
+    });
+});
+
+
+
+
+
+
+
+
 //Lighting ------------------------------------------------
 //GUI setup:
 
