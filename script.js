@@ -211,7 +211,7 @@ function main() {
 	const cubeGeo = new THREE.BoxGeometry( 4, 0.2, 0.4);
 	const cubeMat = new THREE.MeshStandardMaterial( { color: '#ffffff' } );
 	const mesh = new THREE.Mesh( cubeGeo, cubeMat );
-	mesh.position.set( 0, 3, -12 );
+	mesh.position.set( 0, 3, 32.8 );
 	scene.add( mesh );
 
 }
@@ -222,7 +222,7 @@ function main() {
 	const sphere_material = new THREE.MeshStandardMaterial( { color: '#ff0000' } ); 
 	sphere = new THREE.Mesh( sphere_geometry, sphere_material ); 
 
-	sphere.position.set(2,3,-12);  
+	sphere.position.set(2,3,32.8);  
 
 	scene.add( sphere );
 
@@ -234,7 +234,7 @@ function main() {
 	const sphere_material = new THREE.MeshStandardMaterial( { color: '#ff0000' } ); 
 	sphere = new THREE.Mesh( sphere_geometry, sphere_material ); 
 
-	sphere.position.set(-2,3,-12);  
+	sphere.position.set(-2,3,32.8);  
 
 	scene.add( sphere );
 }
@@ -412,15 +412,14 @@ function main() {
 	}
 
 
+
+//first dog
 	{
-	//3A Dog Obj File
-	//Stuff for obj file
-	//create init object
 	const objLoader = new OBJLoader();
 	objLoader.load('./white_dog.obj', (object) => {
 	//object.rotation.set(0,60,0);
 	object.scale.set(0.5, 0.5, 0.5); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
-	object.position.set(0,-0.1,-15);    //I added the appropriate numbers to get close to the cube
+	object.position.set(0,-0.1,30);    //I added the appropriate numbers to get close to the cube
 
 	
 	scene.add(object);
