@@ -391,7 +391,7 @@ function main() {
 	object.traverse((child) => {
 		if (child instanceof THREE.Mesh) {
 			const loader = new THREE.TextureLoader();
-			const dogTexture = loader.load('gs_dog_texture.webp');
+			const dogTexture = loader.load('wood.jpg');
 			child.material.map = dogTexture;
 		}
 	});
@@ -400,6 +400,30 @@ function main() {
 
 
 // DOG PARK OBSTACLES END
+
+//DOG HOUSE Code
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./doghouse.obj', (object) => {
+	object.rotation.set(Math.PI/2,Math.PI/2,-Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(10, 10, 10); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-36,0.05,36);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
 
 //Pink donut
 	{
