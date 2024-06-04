@@ -241,6 +241,31 @@ function main() {
 
 //Bone in mouth ends
 
+
+
+
+//Bone obj file
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./bone2.obj', (object) => {
+	object.rotation.set(0,0,0);  //z axis rotates the object left to right
+	object.scale.set(1, 1, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-5,0.01004,6);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	console.log('Bone object added to scene:', object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			child.material = new THREE.MeshStandardMaterial({ color: 0x0000FF }); // Chat GPT helped me with this line of code (simply add a color to the obj file, no texture)
+		}
+	});
+	});
+}
+
+
 	{
 		//Green Sphere
 		const sphereRadius = 0.7;
@@ -555,10 +580,75 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 });
 
 
+// Pitbull obj file
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./PitbullDog.obj', (object) => {
+	object.rotation.set(0,-Math.PI/2,0);
+	object.scale.set(1, 1, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-3,0,-15);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('pitbull_texture.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
 
 
+// Jumping pitbull Obj File:
+//object.rotation.set(-Math.PI/2,30.5,-Math.PI/2);
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./PitbullDog.obj', (object) => {
+	object.rotation.set(-Math.PI/2,30.5,-Math.PI/2);
+	object.scale.set(1, 1, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-16.5,2.5,-15);    //I added the appropriate numbers to get close to the cube
 
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('light_brown_fur.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
 
+// Jumping pitbull Obj File inside ring:
+//object.rotation.set(-Math.PI/2,30.5,-Math.PI/2);
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./PitbullDog.obj', (object) => {
+	object.rotation.set(-Math.PI/2, 42 ,-Math.PI/2);
+	object.scale.set(1, 1, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-25,1.5,-15);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('gs_dog_texture.webp');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
 
 
 //Lighting ------------------------------------------------
