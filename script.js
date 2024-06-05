@@ -569,7 +569,7 @@ function main() {
 
 
 //Wolf jumping over rings 
-
+{
 //torus.position.set(26, 2.6,-15)
 const objLoader = new OBJLoader();
 objLoader.load('./Wolf_obj.obj', (object) => {
@@ -588,7 +588,49 @@ objLoader.load('./Wolf_obj.obj', (object) => {
         }
     });
 });
+}
 
+//wolf behind rings
+{
+const objLoader = new OBJLoader();
+objLoader.load('./Wolf_obj.obj', (object) => {
+    object.rotation.set(0, 0, 0); // Adjust the Y-axis rotation incrementally
+    object.scale.set(5, 5, 5); // Adjust the scaling factor
+    object.position.set(26, 0, -19); // Adjust the position
+
+    scene.add(object);
+
+    // Apply texture to the material of the 3D wolf object
+    object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+            const loader = new THREE.TextureLoader();
+            const wolfTexture = loader.load('Wolf_Body.jpg');
+            child.material.map = wolfTexture;
+        }
+    });
+});
+}
+
+//wolf in front of rings
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./Wolf_obj.obj', (object) => {
+		object.rotation.set(0, 0, 0); // Adjust the Y-axis rotation incrementally
+		object.scale.set(5, 5, 5); // Adjust the scaling factor
+		object.position.set(26, 0, -5); // Adjust the position
+	
+		scene.add(object);
+	
+		// Apply texture to the material of the 3D wolf object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const wolfTexture = loader.load('Wolf_Body.jpg');
+				child.material.map = wolfTexture;
+			}
+		});
+	});
+	}
 
 // Pitbull obj file
 
@@ -683,7 +725,126 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 		});
 	}
 
+// Puppy next to food bowl
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./puppy.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(4, 0, 7.5); // Set position
 
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('black_dog_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+{ //bowl
+	const objLoader = new OBJLoader();
+	objLoader.load('./dogbowl.obj', (object) => {
+		object.rotation.set(Math.PI/2, Math.PI/2,-Math.PI/2);
+		object.scale.set(2, 2, 2); // Adjust the scaling factor
+		object.position.set(2, -0.3, 8); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('dogbowl_metal.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+
+	//food in bowl
+	{
+		// Food in bowl
+		const sphereRadius = 0.2;
+		const sphereWidthDivisions = 32;
+		const sphereHeightDivisions = 16;
+		const sphereGeo = new THREE.SphereGeometry(sphereRadius, sphereWidthDivisions, sphereHeightDivisions);
+		const sphereMat = new THREE.MeshStandardMaterial({ color: '#7B3F00' });
+
+ //ChatGPT helped me learn how to write a for loop that makes multiple copies of the same object compacted together in the next 12 lines of code.
+		const numSpheres = 100; // Total number of spheres
+		const centerX = 2; // Center position X
+		const centerZ = 8; // Center position Z
+		const maxRadius = 1.5; // Maximum radius of the circle
+
+		for (let i = 0; i < numSpheres; i++) {
+			const angle = Math.random() * Math.PI * 2; // Random angle for each sphere
+			const radius = Math.sqrt(Math.random()) * maxRadius; // Random radius with square root for more density towards center
+			const x = centerX + Math.cos(angle) * radius;
+			const z = centerZ + Math.sin(angle) * radius;
+			const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+			mesh.position.set(x, 0.3, z);
+			scene.add(mesh);
+		}
+	}
+	
+
+	//bowl for water
+	{
+		const objLoader = new OBJLoader();
+		objLoader.load('./dogbowl.obj', (object) => {
+			object.rotation.set(Math.PI/2, Math.PI/2,-Math.PI/2);
+			object.scale.set(2, 2, 2); // Adjust the scaling factor
+			object.position.set(-10, -0.3, 8); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('dogbowl_metal.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
+
+
+//water in bowl
+{
+	const geometry = new THREE.TorusGeometry( 10, 11, 16, 100 ); 
+	const material = new THREE.MeshBasicMaterial( { color: 0x0E87CC} ); 
+	const torus = new THREE.Mesh( geometry, material ); scene.add( torus );
+	torus.rotation.set(Math.PI/2,0,0)
+	torus.scale.set(0.1,0.1,0.1);
+	torus.position.set(-10,0,8);
+	}
+
+	{ //puppy next to water bowl
+		const objLoader = new OBJLoader();
+		objLoader.load('./puppy.obj', (object) => {
+			object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+			object.position.set(-12, 0, 8.5); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('brown_fur.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
 
 	//Clifford the big red dog!!
 {
@@ -752,7 +913,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	objLoader.load('./Tree.obj', (object) => {
 	object.rotation.set(-Math.PI/2,Math.PI/2,Math.PI/2);
 	object.scale.set(4, 5, 4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
-	object.position.set(0,0,0);    //I added the appropriate numbers to get close to the cube
+	object.position.set(0,0,-4);    //I added the appropriate numbers to get close to the cube
 
 	
 	scene.add(object);
@@ -765,6 +926,49 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	});
 	});
 }
+
+
+//Tree 4
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./Tree.obj', (object) => {
+	object.rotation.set(-Math.PI/2,Math.PI/2,Math.PI/2);
+	object.scale.set(4, 5, 4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-30,0,9);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			child.material = new THREE.MeshStandardMaterial({ color: 0x4F7942 }); // Chat GPT helped me with this line of code (simply add a color to the obj file, no texture)
+		}
+	});
+	});
+}
+
+//Tree 5
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./Tree.obj', (object) => {
+	object.rotation.set(-Math.PI/2,Math.PI/2,Math.PI/2);
+	object.scale.set(4, 5, 4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-30,0,9);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			child.material = new THREE.MeshStandardMaterial({ color: 0x4F7942 }); // Chat GPT helped me with this line of code (simply add a color to the obj file, no texture)
+		}
+	});
+	});
+}
+
+
 
 //Lighting ------------------------------------------------
 //GUI setup:
