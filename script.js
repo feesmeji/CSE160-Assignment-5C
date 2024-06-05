@@ -53,7 +53,7 @@ function main() {
 	const near = 0.1;
 	const far = 1000;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-	camera.position.set( 0, 10, 50 );
+	camera.position.set( 0, 10, 60 );
 
 	class MinMaxGUIHelper {
 
@@ -434,16 +434,14 @@ function main() {
 }
 
 
-// DOG PARK OBSTACLES END
-
-//DOG HOUSE Code
+// stool-like obstacles
 
 {
 	const objLoader = new OBJLoader();
-	objLoader.load('./doghouse.obj', (object) => {
-	object.rotation.set(Math.PI/2,Math.PI/2,-Math.PI/2);  //z axis rotates the object left to right
-	object.scale.set(10, 10, 10); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
-	object.position.set(-36,0.05,36);    //I added the appropriate numbers to get close to the cube
+	objLoader.load('./chair_obstacle.obj', (object) => {
+	object.rotation.set((-Math.PI/2),Math.PI/2,Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(1, 0.3, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(12,0.05,20);    //I added the appropriate numbers to get close to the cube
 
 	
 	scene.add(object);
@@ -458,6 +456,204 @@ function main() {
 	});
 	});
 }
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./chair_obstacle.obj', (object) => {
+	object.rotation.set((-Math.PI/2),Math.PI/2,Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(1, 0.5, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(16,0.05,20);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./chair_obstacle.obj', (object) => {
+	object.rotation.set((-Math.PI/2),Math.PI/2,Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(1, 0.7, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(20,0.05,20);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./chair_obstacle.obj', (object) => {
+	object.rotation.set((-Math.PI/2),Math.PI/2,Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(1, 0.5, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(24,0.05,20);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./chair_obstacle.obj', (object) => {
+	object.rotation.set((-Math.PI/2),Math.PI/2,Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(1, 0.3, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(28,0.05,20);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+// DOG PARK OBSTACLES END
+
+// Dog next to stool-like obstacles
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./sitting_dog.obj', (object) => {
+	object.rotation.set(-Math.PI/2,0,-Math.PI/2);
+	object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(30,0,19);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('black_dog_texture.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+//Dog jumping over stools
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./PitbullDog.obj', (object) => {
+	object.rotation.set(-Math.PI/2,30.5,-Math.PI/2);
+	object.scale.set(1, 1, 1); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(21,6,20);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('light_brown_fur.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+//puppy resting on stool like object
+{ //puppy next to water bowl
+	const objLoader = new OBJLoader();
+	objLoader.load('./puppy.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(10, 2.3, 19.5); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('brown_fur.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+
+//DOG HOUSE Code
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./doghouse.obj', (object) => {
+	object.rotation.set(Math.PI/2,Math.PI/2,-Math.PI/2);  //z axis rotates the object left to right
+	object.scale.set(10, 10, 10); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(-34,0.05,34);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			const loader = new THREE.TextureLoader();
+			const dogTexture = loader.load('wood.jpg');
+			child.material.map = dogTexture;
+		}
+	});
+	});
+}
+
+
+//Puppy inside dog house
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./puppy.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-32, 0.1, 36.5); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('light_brown_fur.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
 
 
 //Pink donut
@@ -852,7 +1048,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	objLoader.load('./sitting_dog.obj', (object) => {
 	object.rotation.set(-Math.PI/2,0,-Math.PI/4);
 	object.scale.set(0.4, 0.4, 0.4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
-	object.position.set(28,0,-35);    //I added the appropriate numbers to get close to the cube
+	object.position.set(27,0,-32);    //I added the appropriate numbers to get close to the cube
 
 	
 	scene.add(object);
@@ -954,7 +1150,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	objLoader.load('./Tree.obj', (object) => {
 	object.rotation.set(-Math.PI/2,Math.PI/2,Math.PI/2);
 	object.scale.set(4, 5, 4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
-	object.position.set(-30,0,9);    //I added the appropriate numbers to get close to the cube
+	object.position.set(22,0,12);    //I added the appropriate numbers to get close to the cube
 
 	
 	scene.add(object);
@@ -968,6 +1164,163 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	});
 }
 
+
+//Fencing------------------------------------
+//right
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-39, 0, 30); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+	{ 
+		const objLoader = new OBJLoader();
+		objLoader.load('./fence.obj', (object) => {
+			object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+			object.position.set(-39, 0, 10.5); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('fence_texture.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
+	{ 
+		const objLoader = new OBJLoader();
+		objLoader.load('./fence.obj', (object) => {
+			object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+			object.position.set(-39, 0, -9); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('fence_texture.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
+		{ 
+			const objLoader = new OBJLoader();
+			objLoader.load('./fence.obj', (object) => {
+				object.rotation.set(-Math.PI/2, 0, Math.PI/2);
+				object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+				object.position.set(-39, 0, -28.5); // Set position
+		
+				scene.add(object);
+		
+				// Apply texture to the material of the 3D dog object
+				object.traverse((child) => {
+					if (child instanceof THREE.Mesh) {
+						const loader = new THREE.TextureLoader();
+						const dogTexture = loader.load('fence_texture.jpg');
+						child.material.map = dogTexture;
+					}
+				});
+				});
+			}
+
+//left
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(39, 0, 30); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+	{ 
+		const objLoader = new OBJLoader();
+		objLoader.load('./fence.obj', (object) => {
+			object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+			object.position.set(39, 0, 10.5); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('fence_texture.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
+	{ 
+		const objLoader = new OBJLoader();
+		objLoader.load('./fence.obj', (object) => {
+			object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+			object.position.set(39, 0, -9); // Set position
+	
+			scene.add(object);
+	
+			// Apply texture to the material of the 3D dog object
+			object.traverse((child) => {
+				if (child instanceof THREE.Mesh) {
+					const loader = new THREE.TextureLoader();
+					const dogTexture = loader.load('fence_texture.jpg');
+					child.material.map = dogTexture;
+				}
+			});
+			});
+		}
+		{ 
+			const objLoader = new OBJLoader();
+			objLoader.load('./fence.obj', (object) => {
+				object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+				object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+				object.position.set(39, 0, -28.5); // Set position
+		
+				scene.add(object);
+		
+				// Apply texture to the material of the 3D dog object
+				object.traverse((child) => {
+					if (child instanceof THREE.Mesh) {
+						const loader = new THREE.TextureLoader();
+						const dogTexture = loader.load('fence_texture.jpg');
+						child.material.map = dogTexture;
+					}
+				});
+				});
+			}
 
 
 //Lighting ------------------------------------------------
