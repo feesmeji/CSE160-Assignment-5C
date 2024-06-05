@@ -640,7 +640,7 @@ function main() {
 	objLoader.load('./puppy.obj', (object) => {
 		object.rotation.set(-Math.PI/2, 0, Math.PI/2);
 		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-		object.position.set(-32, 0.1, 36.5); // Set position
+		object.position.set(-32, 0.1, 35); // Set position
 
 		scene.add(object);
 
