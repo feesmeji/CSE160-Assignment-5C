@@ -12,12 +12,22 @@ function main() {
 	const scene = new THREE.Scene();
 	const canvas = document.querySelector( '#c' );
 	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
+    renderer.setPixelRatio(window.devicePixelRatio); //chat gpt
+    resizeRendererToDisplaySize(renderer); //chat gpt
 
 	function updateLight() {
 
 		light.target.updateMatrixWorld();
 		helper.update();
 	}
+
+    window.addEventListener('resize', () => {
+        resizeRendererToDisplaySize(renderer);
+    }); //chat gpt
+
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	//canvas.appendChild( renderer.domElement );
 
 // Add sky2block
 {
@@ -39,7 +49,7 @@ function main() {
 //Camera Setup
 //Update from last time
 	const fov = 45;
-	const aspect = 2; // the canvas default
+	const aspect = window.innerWidth/window.innerHeight; // the canvas default
 	const near = 0.1;
 	const far = 100;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
@@ -651,6 +661,8 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 }
 
 
+
+
 //Lighting ------------------------------------------------
 //GUI setup:
 
@@ -777,50 +789,37 @@ function makeXYZGUI( gui, vector3, name, onChangeFn ) {
 
 // Directional Light End ---------------------------
 
-	function resizeRendererToDisplaySize( renderer ) {
+	function resizeRendererToDisplaySize( renderer ) { //chat gpt helped me restructure this code to acheive a full window project
 
 		const canvas = renderer.domElement;
 		const width = canvas.clientWidth;
 		const height = canvas.clientHeight;
 		const needResize = canvas.width !== width || canvas.height !== height;
 		if ( needResize ) {
-
-			renderer.setSize( width, height, false );
-
+            renderer.setSize(width, height, false);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
 		}
 
 		return needResize;
 
 	}
 
-	function render(time) {
+    function render(time) {
+        resizeRendererToDisplaySize(renderer);
 
-		if ( resizeRendererToDisplaySize( renderer ) ) {
+        time *= 0.001; // convert time to seconds
+        cube.rotation.x = time;
+        cube.rotation.y = time;
 
-			const canvas = renderer.domElement;
-			camera.aspect = canvas.clientWidth / canvas.clientHeight;
-			camera.updateProjectionMatrix();
-
-		}
-		time *= 0.001; // convert time to seconds
-
-		cube.rotation.x = time;
-		cube.rotation.y = time;
-
-		// sphere.rotation.x = time;
-		// sphere.rotation.y = time;
-
-		// tetrahedron.rotation.x = time;
-		// tetrahedron.rotation.y = time;
-		renderer.render( scene, camera );
-
-		requestAnimationFrame( render );
-
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+    
 	}
 
 	requestAnimationFrame( render );
 
-
 }
+
 
 main();
