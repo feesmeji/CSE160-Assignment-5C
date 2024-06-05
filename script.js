@@ -12,8 +12,8 @@ function main() {
 	const scene = new THREE.Scene();
 	const canvas = document.querySelector( '#c' );
 	const renderer = new THREE.WebGLRenderer( { antialias: true, canvas } );
-    renderer.setPixelRatio(window.devicePixelRatio); //chat gpt
-    resizeRendererToDisplaySize(renderer); //chat gpt
+    renderer.setPixelRatio(window.devicePixelRatio); //chat gpt helped me with this along with course tutor
+    resizeRendererToDisplaySize(renderer); //chat gpt helped me with this
 
 	function updateLight() {
 
@@ -23,10 +23,10 @@ function main() {
 
     window.addEventListener('resize', () => {
         resizeRendererToDisplaySize(renderer);
-    }); //chat gpt
+    }); //chat gpt helped me with this, a course tutor suggested me to add this as well
 
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setPixelRatio( window.devicePixelRatio );//chat gpt helped me with this
+	renderer.setSize( window.innerWidth, window.innerHeight );//chat gpt helped me with this
 	//canvas.appendChild( renderer.domElement );
 
 // Add sky2block
@@ -49,11 +49,11 @@ function main() {
 //Camera Setup
 //Update from last time
 	const fov = 45;
-	const aspect = window.innerWidth/window.innerHeight; // the canvas default
+	const aspect = window.innerWidth/window.innerHeight; // the canvas default (//chat gpt helped me with this)
 	const near = 0.1;
 	const far = 1000;
 	const camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
-	camera.position.set( 0, 10, 60 );
+	camera.position.set( 0, 20, 70 );
 
 	class MinMaxGUIHelper {
 
@@ -1586,7 +1586,7 @@ function makeXYZGUI( gui, vector3, name, onChangeFn ) {
 
 	}
 
-    function render(time) {
+    function render(time) { //chat gpt helped me restructure this code when I was working to debug my project to appear on the entire window on the webpage.
         resizeRendererToDisplaySize(renderer);
 
         time *= 0.001; // convert time to seconds
