@@ -1172,7 +1172,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	objLoader.load('./fence.obj', (object) => {
 		object.rotation.set(-Math.PI/2, 0, Math.PI/2);
 		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-		object.position.set(-39, 0, 30); // Set position
+		object.position.set(-39, -0.3, 30); // Set position
 
 		scene.add(object);
 
@@ -1191,7 +1191,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 		objLoader.load('./fence.obj', (object) => {
 			object.rotation.set(-Math.PI/2, 0, Math.PI/2);
 			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-			object.position.set(-39, 0, 10.5); // Set position
+			object.position.set(-39, -0.3, 10.5); // Set position
 	
 			scene.add(object);
 	
@@ -1210,7 +1210,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 		objLoader.load('./fence.obj', (object) => {
 			object.rotation.set(-Math.PI/2, 0, Math.PI/2);
 			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-			object.position.set(-39, 0, -9); // Set position
+			object.position.set(-39, -0.3, -9); // Set position
 	
 			scene.add(object);
 	
@@ -1229,7 +1229,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 			objLoader.load('./fence.obj', (object) => {
 				object.rotation.set(-Math.PI/2, 0, Math.PI/2);
 				object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
-				object.position.set(-39, 0, -28.5); // Set position
+				object.position.set(-39, -0.3, -28.5); // Set position
 		
 				scene.add(object);
 		
@@ -1250,7 +1250,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 	objLoader.load('./fence.obj', (object) => {
 		object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
 		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-		object.position.set(39, 0, 30); // Set position
+		object.position.set(39, -0.3, 30); // Set position
 
 		scene.add(object);
 
@@ -1269,7 +1269,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 		objLoader.load('./fence.obj', (object) => {
 			object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
 			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-			object.position.set(39, 0, 10.5); // Set position
+			object.position.set(39, -0.3, 10.5); // Set position
 	
 			scene.add(object);
 	
@@ -1288,7 +1288,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 		objLoader.load('./fence.obj', (object) => {
 			object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
 			object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
-			object.position.set(39, 0, -9); // Set position
+			object.position.set(39, -0.3, -9); // Set position
 	
 			scene.add(object);
 	
@@ -1307,7 +1307,7 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 			objLoader.load('./fence.obj', (object) => {
 				object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
 				object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
-				object.position.set(39, 0, -28.5); // Set position
+				object.position.set(39, -0.3, -28.5); // Set position
 		
 				scene.add(object);
 		
@@ -1322,6 +1322,127 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 				});
 			}
 
+//back
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-28, -0.3, -39); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-5, -0.3, -39); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.17, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(23, -0.3, -39); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+//front
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-28, -0.3, 40); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.12, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(-5, -0.3, 40); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+{ 
+	const objLoader = new OBJLoader();
+	objLoader.load('./fence.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/180);
+		object.scale.set(0.17, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(23, -0.3, 40); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('fence_texture.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
 
 //Lighting ------------------------------------------------
 //GUI setup:
