@@ -13,7 +13,7 @@ The project may take up to 10 seconds to fully load.
 
 UCSC Email: feesmeji@ucsc.edu
 
-Notes to grader: Most code based off of threejs.org guides that were linked on assignment 5.B instructions. ChatGPT sometimes helped me debug and get unstuck with my code, and I made comments in my code indicating where it was used. Also recieved help from a course tutor. 
+Notes to grader: Most code based off of threejs.org guides that were linked on assignment 5.B instructions. ChatGPT sometimes helped me learn, debug and get unstuck with my code, and I made comments in my code indicating where it was used. Also recieved help from a course tutor. 
 
 A course tutor and chatGPT helped me get my assignment to show on a full screen for the website.
 
