@@ -1,5 +1,7 @@
 Fernando Mejia 
 
+UCSC Email: feesmeji@ucsc.edu
+
 Assignment 5C: Dog Park
 
 Welcome to my dog park! Here you will find various dogs, various different-shaped dog toys, and some obstacles. Clifford the big red dog makes an appearance too!
@@ -10,8 +12,6 @@ Included are some controls for the lighting in the world.
 
 The project may take up to 10 seconds to fully load.
 
-
-UCSC Email: feesmeji@ucsc.edu
 
 Notes to grader: Most code based off of threejs.org guides that were linked on assignment 5.B instructions. ChatGPT sometimes helped me learn, debug and get unstuck with my code, and I made comments in my code indicating where it was used. Also recieved help from a course tutor. 
 
