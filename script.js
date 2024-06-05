@@ -661,6 +661,49 @@ objLoader.load('./Wolf_obj.obj', (object) => {
 }
 
 
+// Puppy OBJ File
+
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./puppy.obj', (object) => {
+		object.rotation.set(-Math.PI/2, 0, -Math.PI/2);
+		object.scale.set(0.1, 0.1, 0.1); // Adjust the scaling factor
+		object.position.set(13, 0, -7.5); // Set position
+
+		scene.add(object);
+
+		// Apply texture to the material of the 3D dog object
+		object.traverse((child) => {
+			if (child instanceof THREE.Mesh) {
+				const loader = new THREE.TextureLoader();
+				const dogTexture = loader.load('light_brown_fur.jpg');
+				child.material.map = dogTexture;
+			}
+		});
+		});
+	}
+
+
+
+	//Clifford the big red dog!!
+{
+	const objLoader = new OBJLoader();
+	objLoader.load('./sitting_dog.obj', (object) => {
+	object.rotation.set(-Math.PI/2,0,-Math.PI/4);
+	object.scale.set(0.4, 0.4, 0.4); // Adjust the scaling factor (CHATgpt helped me come up with this line of code, I input the numbers by myself)
+	object.position.set(28,0,-35);    //I added the appropriate numbers to get close to the cube
+
+	
+	scene.add(object);
+	// Apply texture to the material of the 3D dog object (chatgpt helped me come up with the next 4 lines, I learned its a standard way of applying textures to 3d object like this using children)
+	// Similar to this: https://discourse.threejs.org/t/how-to-texture-a-3d-model-in-three-js/25035
+	object.traverse((child) => {
+		if (child instanceof THREE.Mesh) {
+			child.material = new THREE.MeshStandardMaterial({ color: 0xFF0000 }); // Chat GPT helped me with this line of code (simply add a color to the obj file, no texture)
+		}
+	});
+	});
+}
 
 
 //Lighting ------------------------------------------------

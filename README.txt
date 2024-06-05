@@ -1,6 +1,8 @@
 Fernando Mejia 
 
-Assignment 5C
+Assignment 5C: Dog Park
+
+Welcome to my dog park! Here you will find various dogs, various different-shaped dog toys, and some obstacles. Clifford the big red dog makes an appearance too!
 
 UCSC Email: feesmeji@ucsc.edu
 
