@@ -11,3 +11,5 @@ You may rotate the world by clicking the mouse and dragging it across your scree
 Included are some controls for the lighting in the world.
 
 The project may take up to 10 seconds to fully load.
+
+[Link to project](https://feesmeji.github.io/CSE160-Assignment-5C/)
